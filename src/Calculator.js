@@ -1,5 +1,6 @@
 import Display from './Display.js'
 import Button from './Button.js'
+import { createButtonGrid, attachLogic } from './Button.js'
 
 export default function Calculator () {
   const container = document.createElement('div')
@@ -11,6 +12,8 @@ export default function Calculator () {
   container.style.boxShadow = '0 0 20px #895737'
 
   const display = Display()
+  const grid = createButtonGrid()
+  attachLogic(display, grid)
   const buttons = Button(display)
 
   container.appendChild(display)
